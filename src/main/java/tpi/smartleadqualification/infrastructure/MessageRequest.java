@@ -1,4 +1,4 @@
 package tpi.smartleadqualification.infrastructure;
 
-record MessageRequest(String username, String content) {
+record MessageRequest(String username, String email, String content) {
 }

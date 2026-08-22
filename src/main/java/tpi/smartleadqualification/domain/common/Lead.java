@@ -1,4 +1,4 @@
-package tpi.smartleadqualification.domain;
+package tpi.smartleadqualification.domain.common;
 
 public record Lead(User user, String title, LeadType leadType, UrgencyLevel urgencyLevel, String summary) {
 
