@@ -1,10 +1,12 @@
 package tpi.smartleadqualification.domain.submit;
 
-import tpi.smartleadqualification.infrastructure.api.MessageQualificationResponse;
-import tpi.smartleadqualification.infrastructure.api.QualifyMessageRequest;
+import tpi.smartleadqualification.infrastructure.api.output.MessageQualificationResponse;
+import tpi.smartleadqualification.infrastructure.api.output.QualifyMessageRequest;
+
+import java.util.Optional;
 
 public interface LeadQualifier {
 
-    MessageQualificationResponse qualifyMessage(QualifyMessageRequest message);
+    Optional<MessageQualificationResponse> qualifyMessage(QualifyMessageRequest message);
 
 }

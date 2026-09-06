@@ -1,9 +1,9 @@
 package tpi.smartleadqualification.domain.submit;
 
-import tpi.smartleadqualification.domain.common.ContactFormMessage;
+import tpi.smartleadqualification.domain.common.Message;
 
 public interface ProcessMessage {
 
-    void execute(ContactFormMessage contactFormMessage);
+    void execute(Message message);
 
 }

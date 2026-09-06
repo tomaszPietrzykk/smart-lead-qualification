@@ -12,7 +12,7 @@ class ProcessLeadImpl implements ProcessLead {
 
     @Override
     public void execute(Lead lead) {
-
+        System.out.println("processing a lead");
     }
 
 }

@@ -2,11 +2,11 @@ package tpi.smartleadqualification.domain.impl.submit;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import tpi.smartleadqualification.domain.common.Message;
 import tpi.smartleadqualification.domain.common.Lead;
 import tpi.smartleadqualification.domain.submit.LeadQualifier;
-import tpi.smartleadqualification.domain.common.ContactFormMessage;
 import tpi.smartleadqualification.domain.submit.QualifyMessageAsLead;
-import tpi.smartleadqualification.infrastructure.api.QualifyMessageRequest;
+import tpi.smartleadqualification.infrastructure.api.output.QualifyMessageRequest;
 
 import java.util.Optional;
 
@@ -25,14 +25,12 @@ class QualifyMessageAsLeadImpl implements QualifyMessageAsLead {
     }
 
     @Override
-    public Optional<Lead> execute(ContactFormMessage contactFormMessage) {
-        var messageQualificationResponse = leadQualifier
-                .qualifyMessage(new QualifyMessageRequest(model, contactFormMessage.content()));
-        if (!messageQualificationResponse.isLead()) {
-            return Optional.empty();
-        }
-
-        return Optional.of(leadMapper.toLead(contactFormMessage.user(), messageQualificationResponse));
+    public Optional<Lead> execute(Message message) {
+        return leadQualifier
+                .qualifyMessage(new QualifyMessageRequest(model, message.content()))
+                .map(messageQualificationResponse ->
+                        leadMapper.toLead(message.user(), messageQualificationResponse)
+                );
     }
 
 }

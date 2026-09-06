@@ -3,7 +3,7 @@ package tpi.smartleadqualification.domain.impl.submit;
 import org.springframework.stereotype.Service;
 import tpi.smartleadqualification.domain.common.Lead;
 import tpi.smartleadqualification.domain.common.User;
-import tpi.smartleadqualification.infrastructure.api.MessageQualificationResponse;
+import tpi.smartleadqualification.infrastructure.api.output.MessageQualificationResponse;
 
 @Service
 class LeadMapper {
