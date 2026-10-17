@@ -1,5 +1,6 @@
 package tpi.smartleadqualification.infrastructure.db;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tpi.smartleadqualification.domain.common.Message;
@@ -12,12 +13,15 @@ import java.util.List;
 @RequiredArgsConstructor
 class MessageService implements SaveMessage, FindMessages {
 
+    private final FindOrCreateUser findOrCreateUser;
     private final MessageMapper messageMapper;
     private final MessageRepository messageRepository;
 
     @Override
+    @Transactional
     public void save(Message message) {
-        messageRepository.save(messageMapper.toEntity(message));
+        var userEntity = findOrCreateUser.execute(message.user());
+        messageRepository.save(messageMapper.toEntity(message, userEntity));
     }
 
     @Override

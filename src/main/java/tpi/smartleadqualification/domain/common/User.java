@@ -1,4 +1,4 @@
 package tpi.smartleadqualification.domain.common;
 
-public record User(String username, String emailAddress) {
+public record User(String username, String emailAddress, String phoneNumber) {
 }

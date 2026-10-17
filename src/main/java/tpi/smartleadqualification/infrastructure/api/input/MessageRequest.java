@@ -7,5 +7,6 @@ import jakarta.validation.constraints.NotNull;
 record MessageRequest(
         @NotBlank @NotNull String username,
         @NotNull @Email String email,
+        String phoneNumber,
         @NotBlank @NotNull String content) {
 }

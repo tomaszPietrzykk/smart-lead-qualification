@@ -22,9 +22,10 @@ class MessageRepositoryImpl implements MessageRepository {
     public List<MessageEntity> findAllMessages() {
         return jpaMessageRepository.findAll();
     }
+
+
 }
 
-@Repository
 interface JpaMessageRepository extends JpaRepository<MessageEntity, Long> {
 
 }

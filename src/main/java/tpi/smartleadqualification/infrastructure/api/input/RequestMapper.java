@@ -8,7 +8,9 @@ import tpi.smartleadqualification.domain.common.User;
 class RequestMapper {
 
     Message toMessage(MessageRequest messageRequest) {
-        return new Message(new User(messageRequest.username(), messageRequest.email()), messageRequest.content());
+        return new Message(
+                new User(messageRequest.username(), messageRequest.email(), messageRequest.phoneNumber()),
+                messageRequest.content());
     }
 
 }

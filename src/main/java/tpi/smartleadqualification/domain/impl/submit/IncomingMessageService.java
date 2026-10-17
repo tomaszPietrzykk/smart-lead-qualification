@@ -17,7 +17,7 @@ class IncomingMessageService implements ProcessIncomingMessage {
     private final ProcessLead processLead;
     private final ProcessMessage processMessage;
 
-    @Async // TODO: enable async
+    @Async
     @Override
     public void execute(Message message) {
         qualifyMessageAsLead.execute(message)
